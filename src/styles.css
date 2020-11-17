@@ -1,0 +1,113 @@
+html,
+body {
+  height: 100%;
+  background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+}
+.container {
+  height: 100%;
+  max-width: 1700px;
+  margin: 50px auto 0 auto;
+}
+h1 {
+  text-align: center;
+  color: darkblue;
+  margin: 30px 0;
+  font-weight: bold;
+}
+h5 {
+  text-align: center;
+  padding-top: 10px;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.search-icon {
+  padding: 11px 0 0;
+  color: darkblue;
+  display: inline;
+}
+.search-city {
+  justify-content: center;
+  padding: 5px;
+  margin: 0 auto;
+}
+.city-name {
+  max-width: 300px;
+  margin: 0;
+}
+
+.sun-icon {
+  font-size: 55px;
+  text-align: center;
+}
+.temperature {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.overview-date {
+  border: 2px solid darkblue;
+  text-align: center;
+  border-radius: 10px;
+}
+.overview-date:hover {
+  cursor: pointer;
+  border: 1px solid darkblue;
+  color: white;
+  background: darkblue;
+  opacity: 0.5;
+}
+.hint {
+  margin: 40px auto;
+  padding: 20px 20px;
+  background: darkblue;
+  text-align: center;
+  width: 800px;
+  border-radius: 10px;
+  color: white;
+}
+.final-city-name {
+  background: darkblue;
+  text-align: center;
+  color: white;
+  padding: 10px 0 20px 0;
+  margin: 25px auto;
+  border-radius: 10px;
+}
+.footer {
+  text-align: center;
+  font-size: 12px;
+}
+.weather-search {
+  width: 500px;
+}
+.form-text {
+  width: 230px;
+}
+.searchButton {
+  background: darkblue;
+  border: 1px solid darkblue;
+}
+
+.searchButton:hover {
+  cursor: pointer;
+  border: 1px solid darkblue;
+  color: white;
+  background: darkblue;
+  opacity: 0.5;
+}
+.chooseUnit {
+  text-align: center;
+}
+#celsius {
+  color: darkblue;
+}
+#fahrenheit {
+  color: darkblue;
+}
+#current-location {
+  margin: 0 10px;
+}
