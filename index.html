@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <script
+      src="https://kit.fontawesome.com/55eee052ac.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Your daily weather</h1>
+      <div class="row search-city">
+        <i class="fas fa-search search-icon"></i>
+        <form class="form-inline" id="form">
+          <div class="form-group mx-sm-3 mb-2">
+            <input
+              type="text"
+              id="enter-city"
+              class="form-control"
+              placeholder="Enter city name"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary mb-2 searchButton">
+            Search
+          </button>
+          <button
+            type="submit"
+            class="btn btn-primary mb-2 searchButton"
+            id="current-location"
+          >
+            Current location
+          </button>
+        </form>
+      </div>
+      <div class="card final-city-name" style="width: 18rem">
+        <h5 class="card-title" id="location"></h5>
+        <p class="card-text" id="date-time"></p>
+        <p class="card-text" id="calender-time"></p>
+        <p class="card-text">540m over sea</p>
+      </div>
+      <br />
+      <p class="chooseUnit">
+        Choose your desired unit <a href="#" id="celsius">°C</a> /
+        <a href="#" id="fahrenheit">°F</a>
+      </p>
+      <div class="row overview-weather">
+        <div class="col-sm-2">
+          <div class="overview-date">
+            <h5 class="date_title">Today</h5>
+            <div class="sun-icon">
+              <i class="fas fa-cloud-showers-heavy"></i>
+            </div>
+            <h4 class="temperature"><span id="temp-1">13°C</span></h4>
+            <ul>
+              <li class="wind">Wind: <span id="wind-1"></span>km/h</li>
+              <li class="humidity">Humidity: <span id="humidity-1"></span>%</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="overview-date">
+            <h5 class="date_title">Tomorrow</h5>
+            <div class="sun-icon">
+              <i class="fas fa-sun"></i>
+            </div>
+            <h4 class="temperature"><span id="temp-2">16°C</span></h4>
+            <ul>
+              <li class="wind">Wind: 12km/h</li>
+              <li class="humidity">Humidity: 4%</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="overview-date">
+            <h5 class="date_title">Thursday</h5>
+            <div class="sun-icon"><i class="fas fa-cloud-sun-rain"></i></div>
+            <h4 class="temperature"><span id="temp-3">14°C</span></h4>
+            <ul>
+              <li class="wind">Wind: 15km/h</li>
+              <li class="humidity">Humidity: 60%</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="overview-date">
+            <h5 class="date_title">Friday</h5>
+            <div class="sun-icon"><i class="fas fa-cloud-sun"></i></div>
+            <h4 class="temperature"><span id="temp-4">17°C</span></h4>
+            <ul>
+              <li class="wind">Wind: 4km/h</li>
+              <li class="humidity">Humidity: 2%</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="overview-date">
+            <h5 class="date_title">Saturday</h5>
+            <div class="sun-icon"><i class="fas fa-sun"></i></div>
+            <h4 class="temperature"><span id="temp-5">19°C</span></h4>
+            <ul>
+              <li class="wind">Wind: 0km/h</li>
+              <li class="humidity">Humidity: 4%</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="overview-date">
+            <h5 class="date_title">Sunday</h5>
+            <div class="sun-icon"><i class="fas fa-sun"></i></div>
+            <h4 class="temperature"><span id="temp-6">18°C</span></h4>
+            <ul>
+              <li class="wind">Wind: 1km/h</li>
+              <li class="humidity">Humidity: 1%</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <p class="hint">
+        Hint: Don't forget your umbrella & your rain coat. But if you forget:
+        Dance in the rain😊
+      </p>
+      <p class="footer">This page was made by Alexandra Wälti</p>
+    </div>
+    <script
+      language="javascript"
+      type="text/javascript"
+      src="src/script.js"
+    ></script>
+  </body>
+</html>
