@@ -8,6 +8,12 @@ function showInput(response) {
   document.querySelector("#wind-1").innerHTML = Math.round(
     response.data.wind.speed
   );
+  document
+    .querySelector("#icon-1")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
 }
 
 //connect City name with API & arrange code that we can have a default (San Francisco) at the end of the total code
