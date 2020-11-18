@@ -14,15 +14,26 @@ h1 {
   margin: 30px 0;
   font-weight: bold;
 }
-h5 {
+#location {
   text-align: center;
   padding-top: 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 20px;
 }
+#date-time {
+  margin-bottom: 10px;
+}
+
 ul {
   list-style: none;
   padding: 0;
 }
 
+#current {
+  width: 400px;
+  margin: 0 auto 20px auto;
+}
 .search-icon {
   padding: 11px 0 0;
   color: darkblue;
@@ -44,14 +55,18 @@ ul {
 }
 .temperature {
   text-align: center;
-  font-size: 30px;
+  font-size: 25px;
   font-weight: bold;
+}
+h5 {
+  margin-bottom: 0;
 }
 
 .overview-date {
   border: 2px solid darkblue;
   text-align: center;
   border-radius: 10px;
+  padding-top: 10px;
 }
 .overview-date:hover {
   cursor: pointer;
@@ -60,6 +75,7 @@ ul {
   background: darkblue;
   opacity: 0.5;
 }
+
 .hint {
   margin: 40px auto;
   padding: 20px 20px;
@@ -74,7 +90,7 @@ ul {
   text-align: center;
   color: white;
   padding: 10px 0 20px 0;
-  margin: 25px auto;
+  margin: 15px auto;
   border-radius: 10px;
 }
 .footer {
@@ -102,6 +118,9 @@ ul {
 .chooseUnit {
   text-align: center;
 }
+.footer {
+  margin-top: 10px;
+}
 #celsius {
   color: darkblue;
 }
@@ -110,7 +129,4 @@ ul {
 }
 #current-location {
   margin: 0 10px;
-}
-#current {
-  display: inline;
 }

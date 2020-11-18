@@ -40,7 +40,7 @@ function showForecast(response) {
        }@2x.png"/>
       <h4 class="temperature"><span id="forecast-temp">${Math.round(
         forecast.main.temp
-      )}</span>°C</h4>
+      )}°C</span></h4>
       <ul>
       <li class="wind">Wind: <span>${Math.round(
         forecast.wind.speed
@@ -115,7 +115,7 @@ calenderDate.innerHTML = `${date}.${month}.${year}`;
 function showCelciusForecast(response) {
   document.querySelector("#forecast-temp").innerHTML = `${Math.round(
     response.data.list[0].main.temp
-  )}`;
+  )}°C`;
 }
 
 // Changing Celcius of current temp now
@@ -146,11 +146,11 @@ function showFahrenheit(response) {
   )}°F`;
 }
 
-// Changing Fahrenheit of temp forecast
+// Changing Fahrenheit of forecast temp
 function showFahrenheitForecast(response) {
   document.querySelector("#forecast-temp").innerHTML = `${Math.round(
     (response.data.list[0].main.temp * 9) / 5 + 32
-  )}`;
+  )}°F`;
 }
 
 function changeFahrenheit(event) {
