@@ -38,7 +38,7 @@ function showForecast(response) {
        <img src="http://openweathermap.org/img/wn/${
          forecast.weather[0].icon
        }@2x.png"/>
-      <h4 class="temperature"><span>${Math.round(
+      <h4 class="temperature"><span id="forecast-temp">${Math.round(
         forecast.main.temp
       )}</span>°C</h4>
       <ul>
@@ -52,7 +52,6 @@ function showForecast(response) {
     </div>
   </div>`;
   }
-  console.log(forecast);
 }
 
 //connect City name with API & arrange code that we can have a default (San Francisco) at the end of the total code
@@ -112,7 +111,14 @@ dateElement.innerHTML = `${day}, ${hour}:${minutes}`;
 let calenderDate = document.querySelector("#calender-time");
 calenderDate.innerHTML = `${date}.${month}.${year}`;
 
-// Changing Celcius
+// Changing Celcius of temp forecast
+function showCelciusForecast(response) {
+  document.querySelector("#forecast-temp").innerHTML = `${Math.round(
+    response.data.list[0].main.temp
+  )}`;
+}
+
+// Changing Celcius of current temp now
 function showCelcius(response) {
   document.querySelector("#temp-1").innerHTML = `${Math.round(
     response.data.main.temp
@@ -125,16 +131,26 @@ function changeCelcius(event) {
   let apiKey = "d35ea4f1a6c2987f94eb1e419288d906";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showCelcius);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showCelciusForecast);
 }
 
 let clickCelcius = document.querySelector("#celsius");
 clickCelcius.addEventListener("click", changeCelcius);
 
-// Changing Fahrenheit
+// Changing Fahrenheit of current temp now
 function showFahrenheit(response) {
   document.querySelector("#temp-1").innerHTML = `${Math.round(
     (response.data.main.temp * 9) / 5 + 32
   )}°F`;
+}
+
+// Changing Fahrenheit of temp forecast
+function showFahrenheitForecast(response) {
+  document.querySelector("#forecast-temp").innerHTML = `${Math.round(
+    (response.data.list[0].main.temp * 9) / 5 + 32
+  )}`;
 }
 
 function changeFahrenheit(event) {
@@ -143,6 +159,9 @@ function changeFahrenheit(event) {
   let apiKey = "d35ea4f1a6c2987f94eb1e419288d906";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showFahrenheit);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showFahrenheitForecast);
 }
 
 let clickFahrenheit = document.querySelector("#fahrenheit");
