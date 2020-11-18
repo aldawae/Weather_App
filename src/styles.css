@@ -111,3 +111,6 @@ ul {
 #current-location {
   margin: 0 10px;
 }
+#current {
+  display: inline;
+}

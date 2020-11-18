@@ -48,83 +48,24 @@
         <h5 class="card-title" id="location"></h5>
         <p class="card-text" id="date-time"></p>
         <p class="card-text" id="calender-time"></p>
-        <p class="card-text">540m over sea</p>
       </div>
       <br />
       <p class="chooseUnit">
         Choose your desired unit <a href="#" id="celsius">°C</a> /
         <a href="#" id="fahrenheit">°F</a>
       </p>
-      <div class="row overview-weather">
-        <div class="col-sm-2">
-          <div class="overview-date">
-            <h5 class="date_title">Today</h5>
-            <img src="" alt="icon" id="icon-1" />
-            <h4 class="temperature"><span id="temp-1">13°C</span></h4>
-            <ul>
-              <li class="wind">Wind: <span id="wind-1"></span>km/h</li>
-              <li class="humidity">Humidity: <span id="humidity-1"></span>%</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-sm-2">
-          <div class="overview-date">
-            <h5 class="date_title">Tomorrow</h5>
-            <div class="sun-icon">
-              <i class="fas fa-sun"></i>
-            </div>
-            <h4 class="temperature"><span id="temp-2">16°C</span></h4>
-            <ul>
-              <li class="wind">Wind: 12km/h</li>
-              <li class="humidity">Humidity: 4%</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-sm-2">
-          <div class="overview-date">
-            <h5 class="date_title">Thursday</h5>
-            <div class="sun-icon"><i class="fas fa-cloud-sun-rain"></i></div>
-            <h4 class="temperature"><span id="temp-3">14°C</span></h4>
-            <ul>
-              <li class="wind">Wind: 15km/h</li>
-              <li class="humidity">Humidity: 60%</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-sm-2">
-          <div class="overview-date">
-            <h5 class="date_title">Friday</h5>
-            <div class="sun-icon"><i class="fas fa-cloud-sun"></i></div>
-            <h4 class="temperature"><span id="temp-4">17°C</span></h4>
-            <ul>
-              <li class="wind">Wind: 4km/h</li>
-              <li class="humidity">Humidity: 2%</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-sm-2">
-          <div class="overview-date">
-            <h5 class="date_title">Saturday</h5>
-            <div class="sun-icon"><i class="fas fa-sun"></i></div>
-            <h4 class="temperature"><span id="temp-5">19°C</span></h4>
-            <ul>
-              <li class="wind">Wind: 0km/h</li>
-              <li class="humidity">Humidity: 4%</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-sm-2">
-          <div class="overview-date">
-            <h5 class="date_title">Sunday</h5>
-            <div class="sun-icon"><i class="fas fa-sun"></i></div>
-            <h4 class="temperature"><span id="temp-6">18°C</span></h4>
-            <ul>
-              <li class="wind">Wind: 1km/h</li>
-              <li class="humidity">Humidity: 1%</li>
-            </ul>
-          </div>
+      <div class="col-sm-2" id="current">
+        <div class="overview-date">
+          <h5 class="date_title">Today</h5>
+          <img src="" alt="icon" id="icon-1" />
+          <h4 class="temperature"><span id="temp-1">13°C</span></h4>
+          <ul>
+            <li class="wind">Wind: <span id="wind-1"></span>km/h</li>
+            <li class="humidity">Humidity: <span id="humidity-1"></span>%</li>
+          </ul>
         </div>
       </div>
+      <div class="row overview-weather" id="forecast"></div>
       <p class="hint">
         Hint: Don't forget your umbrella & your rain coat. But if you forget:
         Dance in the rain😊

@@ -16,11 +16,53 @@ function showInput(response) {
     );
 }
 
+//Show Forecast
+function formatHours(timestamp) {
+  let date = new Date(timestamp);
+  let hours = ("0" + date.getHours()).substr(-2);
+  let minutes = ("0" + date.getMinutes()).substr(-2);
+  return `${hours}:${minutes}`;
+}
+
+function showForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = null;
+  let forecast = null;
+
+  for (let index = 0; index < 6; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += ` 
+  <div class="col-sm-2">
+    <div class="overview-date">
+       <h5 class="date_title">${formatHours(forecast.dt * 1000)}</h5>
+       <img src="http://openweathermap.org/img/wn/${
+         forecast.weather[0].icon
+       }@2x.png"/>
+      <h4 class="temperature"><span>${Math.round(
+        forecast.main.temp
+      )}</span>°C</h4>
+      <ul>
+      <li class="wind">Wind: <span>${Math.round(
+        forecast.wind.speed
+      )}</span> km/h</li>
+      <li class="wind">Wind: <span>${Math.round(
+        forecast.main.humidity
+      )}</span>%</li>
+      </ul>
+    </div>
+  </div>`;
+  }
+  console.log(forecast);
+}
+
 //connect City name with API & arrange code that we can have a default (San Francisco) at the end of the total code
 function search(city) {
   let apiKey = "d35ea4f1a6c2987f94eb1e419288d906";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showInput);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showForecast);
 }
 function searchCity(event) {
   event.preventDefault();
