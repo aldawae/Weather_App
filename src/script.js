@@ -88,7 +88,7 @@ function changeCelcius(event) {
 let clickCelcius = document.querySelector("#celsius");
 clickCelcius.addEventListener("click", changeCelcius);
 
-// Changing Celcius
+// Changing Fahrenheit
 function showFahrenheit(response) {
   document.querySelector("#temp-1").innerHTML = `${Math.round(
     (response.data.main.temp * 9) / 5 + 32
