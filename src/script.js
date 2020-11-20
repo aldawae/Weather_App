@@ -179,6 +179,6 @@ let buttonCurrentLocation = document.querySelector("#current-location");
 buttonCurrentLocation.addEventListener("click", showCurrentData);
 
 //default city name on page
-let city = "San Francisco";
+let city = "Hawaii";
 let units = "metric";
 search();
