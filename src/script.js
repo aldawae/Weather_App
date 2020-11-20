@@ -1,8 +1,15 @@
 //Show input: search city name, weather today, wind, humidity
 function showInput(response) {
-  document.querySelector("#temp-1").innerHTML = `${Math.round(
-    response.data.main.temp
-  )}°C`;
+  city = response.data.name;
+  if (units === "metric") {
+    document.querySelector("#temp-1").innerHTML = `${Math.round(
+      response.data.main.temp
+    )}°C`;
+  } else {
+    document.querySelector("#temp-1").innerHTML = `${Math.round(
+      response.data.main.temp
+    )}°F`;
+  }
   document.querySelector("#humidity-1").innerHTML = response.data.main.humidity;
   document.querySelector("#location").innerHTML = response.data.name;
   document.querySelector("#wind-1").innerHTML = Math.round(
@@ -28,6 +35,13 @@ function showForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = null;
   let forecast = null;
+
+  let displayUnit = "";
+  if (units === "metric") {
+    displayUnit = "C";
+  } else {
+    displayUnit = "F";
+  }
 
   for (let index = 0; index < 6; index++) {
     forecast = response.data.list[index];
@@ -55,18 +69,19 @@ function showForecast(response) {
 }
 
 //connect City name with API & arrange code that we can have a default (San Francisco) at the end of the total code
-function search(city) {
+function search() {
   let apiKey = "d35ea4f1a6c2987f94eb1e419288d906";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(showInput);
 
-  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(showForecast);
 }
 function searchCity(event) {
   event.preventDefault();
-  let city = document.querySelector("#enter-city").value;
-  search(city);
+  let cityInput = document.querySelector("#enter-city").value;
+  city = cityInput;
+  search();
 }
 
 let searchCityForm = document.querySelector("#form");
@@ -147,24 +162,12 @@ clickFahrenheit.addEventListener("click", changeFahrenheit);
 let celsiusTemperature = 0;
 
 //Current location button
-function showCurrentInput(response) {
-  document.querySelector("#temp-1").innerHTML = `${Math.round(
-    response.data.main.temp
-  )}°C`;
-  document.querySelector("#humidity-1").innerHTML = response.data.main.humidity;
-  document.querySelector("#location").innerHTML = response.data.name;
-  document.querySelector("#wind-1").innerHTML = Math.round(
-    response.data.wind.speed
-  );
-  document.querySelector("#enter-city").value = response.data.name;
-}
-
 function showCurrentPosition(position) {
   let apiKey = "d35ea4f1a6c2987f94eb1e419288d906";
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showCurrentInput);
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(showInput);
 }
 
 function showCurrentData(event) {
@@ -176,4 +179,6 @@ let buttonCurrentLocation = document.querySelector("#current-location");
 buttonCurrentLocation.addEventListener("click", showCurrentData);
 
 //default city name on page
-search("San Francisco");
+let city = "San Francisco";
+let units = "metric";
+search();
