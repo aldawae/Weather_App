@@ -38,7 +38,7 @@ function showForecast(response) {
        <img src="http://openweathermap.org/img/wn/${
          forecast.weather[0].icon
        }@2x.png"/>
-      <h4 class="temperature"><span id="forecast-temp">${Math.round(
+      <h4 class="temperature"><span class="forecast-temp">${Math.round(
         forecast.main.temp
       )}°C</span></h4>
       <ul>
@@ -108,7 +108,7 @@ let minutes = ("0" + today.getMinutes()).substr(-2);
 let calenderDate = document.querySelector("#calender-time");
 calenderDate.innerHTML = `${day}, ${date}.${month}.${year} / ${hour}:${minutes}`;
 
-//New change
+//Change Celcius
 function changeCelcius(event) {
   event.preventDefault();
   document.querySelector("#temp-1").innerHTML = `${celsiusTemperature}°C`;
