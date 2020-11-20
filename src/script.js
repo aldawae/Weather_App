@@ -102,70 +102,49 @@ let days = [
   "Saturday",
 ];
 let day = days[today.getDay()];
-let hour = today.getHours();
+let hour = ("0" + today.getHours()).substr(-2);
 let minutes = ("0" + today.getMinutes()).substr(-2);
 
-let dateElement = document.querySelector("#date-time");
-dateElement.innerHTML = `${day}, ${hour}:${minutes}`;
-
 let calenderDate = document.querySelector("#calender-time");
-calenderDate.innerHTML = `${date}.${month}.${year}`;
+calenderDate.innerHTML = `${day}, ${date}.${month}.${year} / ${hour}:${minutes}`;
 
-// Changing Celcius of temp forecast
-function showCelciusForecast(response) {
-  document.querySelector("#forecast-temp").innerHTML = `${Math.round(
-    response.data.list[0].main.temp
-  )}°C`;
-}
-
-// Changing Celcius of current temp now
-function showCelcius(response) {
-  document.querySelector("#temp-1").innerHTML = `${Math.round(
-    response.data.main.temp
-  )}°C`;
-}
-
+//New change
 function changeCelcius(event) {
   event.preventDefault();
-  let city = document.querySelector("#enter-city").value;
-  let apiKey = "d35ea4f1a6c2987f94eb1e419288d906";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showCelcius);
-
-  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showCelciusForecast);
+  document.querySelector("#temp-1").innerHTML = `${celsiusTemperature}°C`;
+  let forecastItems = document.querySelectorAll(".forecast-temp");
+  forecastItems.forEach(function (item) {
+    // grabbing the current value to convert
+    let currentTemp = item.innerHTML;
+    // remove the ºF
+    currentTemp = currentTemp.replace("°F", "");
+    // convert to Fahrenheit
+    item.innerHTML = `${Math.round(((currentTemp - 32) * 5) / 9)}°C`;
+  });
 }
 
 let clickCelcius = document.querySelector("#celsius");
 clickCelcius.addEventListener("click", changeCelcius);
 
-// Changing Fahrenheit of current temp now
-function showFahrenheit(response) {
-  document.querySelector("#temp-1").innerHTML = `${Math.round(
-    (response.data.main.temp * 9) / 5 + 32
-  )}°F`;
-}
-
-// Changing Fahrenheit of forecast temp
-function showFahrenheitForecast(response) {
-  document.querySelector("#forecast-temp").innerHTML = `${Math.round(
-    (response.data.list[0].main.temp * 9) / 5 + 32
-  )}°F`;
-}
-
 function changeFahrenheit(event) {
   event.preventDefault();
-  let city = document.querySelector("#enter-city").value;
-  let apiKey = "d35ea4f1a6c2987f94eb1e419288d906";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showFahrenheit);
-
-  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showFahrenheitForecast);
+  document.querySelector("#temp-1").innerHTML = `${Math.round(
+    (celsiusTemperature * 9) / 5 + 32
+  )}°F`;
+  let forecastItems = document.querySelectorAll(".forecast-temp");
+  forecastItems.forEach(function (item) {
+    // grabbing the current value to convert
+    let currentTemp = item.innerHTML;
+    // remove the ºC
+    currentTemp = currentTemp.replace("°C", "");
+    // convert to Fahrenheit
+    item.innerHTML = `${Math.round((currentTemp * 9) / 5 + 32)}°F`;
+  });
 }
-
 let clickFahrenheit = document.querySelector("#fahrenheit");
 clickFahrenheit.addEventListener("click", changeFahrenheit);
+
+let celsiusTemperature = 0;
 
 //Current location button
 function showCurrentInput(response) {
