@@ -68,7 +68,7 @@ function showForecast(response) {
       <li class="wind">Wind: <span>${Math.round(
         forecast.wind.speed * 3.6
       )}</span> ${displayWindUnit}</li>
-      <li class="wind">Wind: <span>${Math.round(
+      <li class="humidity">Humidity: <span>${Math.round(
         forecast.main.humidity
       )}</span>%</li>
       </ul>
