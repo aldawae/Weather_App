@@ -9,7 +9,7 @@ body {
 }
 h1 {
   text-align: center;
-  color: darkblue;
+  color: #5862c4;
   margin: 30px 0;
   font-weight: bold;
 }
@@ -40,7 +40,7 @@ ul {
 }
 .search-icon {
   padding: 11px 0 0;
-  color: darkblue;
+  color: #5862c4;
   display: inline;
 }
 .search-city {
@@ -67,7 +67,7 @@ h5 {
 }
 
 .overview-date {
-  border: 2px solid darkblue;
+  border: 2px solid #5862c4;
   text-align: center;
   border-radius: 10px;
   padding-top: 10px;
@@ -79,18 +79,8 @@ h5 {
   background: #5862c4;
   transform: scale(1.1);
 }
-
-.hint {
-  margin: 40px auto;
-  padding: 20px 20px;
-  background: darkblue;
-  text-align: center;
-  width: 800px;
-  border-radius: 10px;
-  color: white;
-}
 .final-city-name {
-  background: darkblue;
+  background: #5862c4;
   text-align: center;
   color: white;
   padding: 10px 0 20px 0;
@@ -108,15 +98,15 @@ h5 {
   width: 230px;
 }
 .searchButton {
-  background: darkblue;
-  border: 1px solid darkblue;
+  background: #5862c4;
+  border: 1px solid #5862c4;
 }
 
 .searchButton:hover {
   cursor: pointer;
-  border: 1px solid darkblue;
+  border: 1px solid #5862c4;
   color: white;
-  background: darkblue;
+  background: #5862c4;
   opacity: 0.5;
 }
 .chooseUnit {
@@ -126,10 +116,10 @@ h5 {
   margin-top: 10px;
 }
 #celcius {
-  color: darkblue;
+  color: #5862c4;
 }
 #fahrenheit {
-  color: darkblue;
+  color: #5862c4;
 }
 #current-location {
   margin: 0 10px;
